@@ -15,7 +15,7 @@ const trial_duration = 300;
 const stim_duration = 200;
 const iti = 300;
 const jitter = 200;
-const n_trials = 2010;
+const n_trials = 10;
 const prob = .15;
 const plugin_name = 'callbackImageKeyboardResponsePlugin';
 
@@ -47,20 +47,19 @@ export function timelineFactory(callback) {
   // jspsych is in the node_modules
   const base_path = '/src/images/';
   let targets = [
-    'target-76116_640.jpg',
-    'target-360807_640.jpg',
-    'target-468232_640.jpg',
-    'target-2083492_640.jpg'
-  ];
-  let nontargets = [
-    'nontarget-234836_640.jpg',
-    'nontarget-274183_640.jpg',
-    'nontarget-280332_640.jpg',
-    'nontarget-734689_640.jpg'
+    '000001.jpg',
+    '000002.jpg',
+    '000003.jpg',
+    '000004.jpg',
+    '000005.jpg',
+    '000006.jpg',
+    '000007.jpg',
+    '000008.jpg',
+    '000009.jpg',
+    '000010.jpg',
   ];
 
   targets = targets.map(target => `${base_path}${target}`);
-  nontargets = nontargets.map(nontarget => `${base_path}${nontarget}`);
 
   const stimuli_order = [];
 
@@ -79,13 +78,6 @@ export function timelineFactory(callback) {
         on_start: target_callback
       };
       image = targets[photo_idx];
-    } else {
-      let photo_idx = getRandomInt(0, nontargets.length);
-      trial = {
-        stimulus: nontargets[photo_idx],
-        on_start: nontarget_callback
-      };
-      image = nontargets[photo_idx];
     }
 
     images.push(image);
@@ -97,7 +89,7 @@ export function timelineFactory(callback) {
 
   const welcome_block = {
     type: 'callback-html-keyboard-response',
-    stimulus: "Welcome to the experiment. Press any key to begin.",
+    stimulus: "In this exercise, you will be shown a series of quickly moving pictures. In between each picture, you will see a <strong>+</strong>. Please focus on this when there is not an image on the screen. This exercise contains imagery that some may find disturbing. User beware. Press any key to begin.",
     post_trial_gap: 500,
     on_start: start_callback
   };
@@ -107,12 +99,21 @@ export function timelineFactory(callback) {
     stimulus: 'stimulus',
     type: plugin_name,
     timeline: stim_list,
-    choices: ['f', 'j'],
     trial_duration: trial_duration,
     stimulus_duration: stim_duration,
     post_trial_gap: post_trial_gap(),
   };
   timeline.push(test_trials);
+
+  // const fixation = {
+  //   type: "callbackImageDisplay",
+  //   stimulus: "./images/fixation.png",
+  //   stimulus_duration: stim_duration,
+  //   trial_duration: () => params.iti + Math.random() * params.jitter,
+  //   post_trial_gap: post_trial_gap(),
+
+  // }
+  // timeline.push(fixation);
 
   const end_block = {
     type: 'callback-html-keyboard-response',
