@@ -1,5 +1,5 @@
-npm install jspsych-react
-npm install webpack -g
+npm install 
+npm install jspsych-react webpack -g
 
 
 this should work
