@@ -1,4 +1,6 @@
+import { currentTrial } from 'jspsych';
 import { jsPsych } from 'jspsych-react'
+import { on_trial_start } from 'jspsych-react'
 
 // Helper function
 function getRandomInt(min, max) {
@@ -45,6 +47,9 @@ export function timelineFactory(callback) {
   const stop_callback = function () {
     callback('stop')
   };
+  // const on_start = (e) => {
+  //   console.log(e)
+  // }
 
   // jspsych is in the node_modules
   const base_path = '/src/images/';
@@ -57,7 +62,7 @@ export function timelineFactory(callback) {
   var imageNumber;
   var fileName;
   var toPush;
-  for (var i = 0; i < 100; i++){
+  for (var i = 0; i < 20; i++){
   imageNumber = Math.floor(Math.random() * (901-1) + 1);
         
   if (imageNumber <= 9){
@@ -121,7 +126,12 @@ export function timelineFactory(callback) {
     },
     stimulus_duration: stim_duration,
     post_trial_gap: post_trial_gap(),
+    // on_start: function(){
+    //   console.log('event')
+    // }
+    
   };
+  
   timeline.push(test_trials);
 
   // const fixation = {
