@@ -1,9 +1,8 @@
 {
   "name": "jspsych-react-example",
   "version": "0.1.0",
-  "description": "Simple jspsych-react P300 experiment",
+  "description": "Simple jspsych-react ",
   "main": "index.js",
-  "repository": "git@github.com:openexp/jspsych-react-example.git",
   "scripts": {
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
