@@ -54,7 +54,7 @@ export function timelineFactory(callback) {
   // jspsych is in the node_modules
   const base_path = '/src/images/';
   let targets = [
-    
+
   ];
   ///Users/jamesvlasak/jspsych_react_picturetask/src/static
   //targets = targets.map(target => `${base_path}${target}`);
@@ -62,25 +62,25 @@ export function timelineFactory(callback) {
   var imageNumber;
   var fileName;
   var toPush;
-  for (var i = 0; i < 20; i++){
-  imageNumber = Math.floor(Math.random() * (901-1) + 1);
-        
-  if (imageNumber <= 9){
+  for (var i = 0; i < 10; i++) {
+    imageNumber = Math.floor(Math.random() * (901 - 1) + 1);
+
+    if (imageNumber <= 9) {
       fileName = "src/static/00000" + imageNumber + ".jpg";
-      toPush = {'stimulus': fileName};
-  }
-  else if (imageNumber > 9 && imageNumber <= 99){
+      toPush = { 'stimulus': fileName };
+    }
+    else if (imageNumber > 9 && imageNumber <= 99) {
       fileName = "src/static/0000" + imageNumber + ".jpg";
-      toPush = {'stimulus': fileName};
-  }
-  else {
+      toPush = { 'stimulus': fileName };
+    }
+    else {
       fileName = "src/static/000" + imageNumber + ".jpg";
-      toPush = {'stimulus': fileName};
-  }
-  if (targets.includes(toPush)){
-    i-=1;
-  }
-  targets.push(toPush);
+      toPush = { 'stimulus': fileName };
+    }
+    if (targets.includes(toPush)) {
+      i -= 1;
+    }
+    targets.push(toPush);
   }
 
   // const stimuli_order = [];
@@ -121,7 +121,7 @@ export function timelineFactory(callback) {
     stimulus: 'stimulus',
     type: plugin_name,
     timeline: targets,
-    trial_duration: function(){
+    trial_duration: function () {
       return jsPsych.randomization.sampleWithoutReplacement([250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750], 1)[0];
     },
     stimulus_duration: stim_duration,
@@ -129,9 +129,9 @@ export function timelineFactory(callback) {
     // on_start: function(){
     //   console.log('event')
     // }
-    
+
   };
-  
+
   timeline.push(test_trials);
 
   // const fixation = {
