@@ -1,6 +1,6 @@
 import React from 'react'
 
-function test() {
+export function test() {
     return (
         <div>
             <h1> Subash nhkdshvkdfv </h1>
@@ -8,4 +8,4 @@ function test() {
     )
 }
 
-export default test
+

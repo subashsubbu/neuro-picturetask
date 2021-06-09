@@ -1,23 +1,24 @@
 import React, { Component } from 'react'
-// import {test} from './Components/test'
+import { test } from './Components/test'
 // import { Router } from '@reach/router'
 import { LoginForm } from './Components/LoginForm'
-import Experiment from './pages/Experiment'
+import { Experiment } from './pages/Experiment'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 
 function App() {
 
     return (
-        <div>
-            <Experiment />
+        <Router>
+            <Switch>
+                <Route path='/test' component={test} />
+                <Route path='/login' component={LoginForm} />
+                <Route path='/experiment' component={Experiment} />
+            </Switch>
+            {/* <Experiment /> */}
             {/* <LoginForm /> */}
 
-        </div>
-    //     <Router>
-    //     {/* <Experiment /> */}
-    //     <LoginForm />
-
-    // </Router>
+        </Router>
 
     )
 }

@@ -4,7 +4,7 @@ import { timelineFactory } from '../Components/timeline';
 import callbackImageKeyboardResponsePlugin from '../Plugins/callbackImageKeyboardResponsePlugin';
 
 
-function Experiment() {
+export function Experiment() {
     const callback = (targetID) => console.log(targetID);
     const timeline = timelineFactory(callback);
     return (
@@ -18,4 +18,4 @@ function Experiment() {
     )
 }
 
-export default Experiment
+
