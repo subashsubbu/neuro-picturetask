@@ -8,7 +8,7 @@ export function Logout() {
 
   useEffect(() => {
     logoutNotion().then(() => {
-      navigate("/");
+      navigate("/login");
     });
   }, [logoutNotion]);
 
