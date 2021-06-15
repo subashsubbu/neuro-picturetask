@@ -126,9 +126,9 @@ export function timelineFactory(callback) {
     },
     stimulus_duration: stim_duration,
     post_trial_gap: post_trial_gap(),
-    // on_start: function(){
-    //   console.log('event')
-    // }
+    on_start: function(){
+      console.log(this)
+    }
 
   };
 
