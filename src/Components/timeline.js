@@ -97,6 +97,10 @@ export function timelineFactory(callback) {
     stimulus: 'stimulus',
     type: "callbackImageKeyboardResponsePlugin",
     timeline: targets,
+    on_start: function() {
+      let x = JSON.stringify(this.stimulus)
+      console.log(x.slice(13,18))
+    },
     trial_duration: function () {
       return jsPsych.randomization.sampleWithoutReplacement([250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750], 1)[0];
     },
