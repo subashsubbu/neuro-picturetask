@@ -2,7 +2,7 @@ import jsPsych from "jspsych";
 import callbackImageKeyboardResponsePlugin, {
   jspsychReact,
 } from "jspsych-react";
-// import plugin from "./callbackImageKeyboardResponsePlugin";
+import plugin from "/Users/jamesvlasak/jspsych_react_picturetask/src/Plugins/callbackImageKeyboardResponsePlugin.js";
 
 // Helper function
 function getRandomInt(min, max) {
@@ -59,7 +59,7 @@ export function timelineFactory(callback) {
   var imageNumber;
   var fileName;
   var toPush;
-  for (var i = 0; i < 10; i++) {
+  for (var i = 0; i < 5; i++) {
     imageNumber = Math.floor(Math.random() * (901 - 1) + 1);
 
     if (imageNumber <= 9) {
@@ -106,9 +106,6 @@ export function timelineFactory(callback) {
     },
     stimulus_duration: stim_duration,
     post_trial_gap: post_trial_gap(),
-    on_start: function(){
-      console.log(this)
-    }
 
   };
 
