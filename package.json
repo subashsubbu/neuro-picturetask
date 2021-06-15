@@ -30,13 +30,18 @@
     "webpack-dev-server": "^1.14.0"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "@neurosity/notion": "^5.2.0",
+    "@reach/router": "^1.3.4",
     "babel-preset-stage-1": "^6.1.18",
-    "jspsych-react": "https://github.com/openexp/jspsych-react.git#v0.4.0",
+    "jspsych-react": "git+https://github.com/openexp/jspsych-react.git#v0.4.0",
     "lodash": "^3.10.1",
-    "react": "^0.14.3",
-    "react-dom": "^0.14.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-redux": "4.3.0",
     "react-router": "^2.0.1",
+    "react-router-dom": "^5.2.0",
+    "react-use": "^17.2.4",
     "redux": "^3.0.4"
   }
 }

@@ -49,24 +49,30 @@ export function timelineFactory(callback) {
 
 
   // jspsych is in the node_modules
-  const base_path = "/src/images/";
-  let targets = [];
+  const base_path = '/src/images/';
+  let targets = [
 
-  let imageNumber;
-  let fileName;
-  let toPush;
-  for (var i = 0; i < 5; i++) {
+  ];
+  ///Users/jamesvlasak/jspsych_react_picturetask/src/static
+  //targets = targets.map(target => `${base_path}${target}`);
+
+  var imageNumber;
+  var fileName;
+  var toPush;
+  for (var i = 0; i < 10; i++) {
     imageNumber = Math.floor(Math.random() * (901 - 1) + 1);
 
     if (imageNumber <= 9) {
       fileName = "src/static/00000" + imageNumber + ".jpg";
-      toPush = { stimulus: fileName };
-    } else if (imageNumber > 9 && imageNumber <= 99) {
+      toPush = { 'stimulus': fileName };
+    }
+    else if (imageNumber > 9 && imageNumber <= 99) {
       fileName = "src/static/0000" + imageNumber + ".jpg";
-      toPush = { stimulus: fileName };
-    } else {
+      toPush = { 'stimulus': fileName };
+    }
+    else {
       fileName = "src/static/000" + imageNumber + ".jpg";
-      toPush = { stimulus: fileName };
+      toPush = { 'stimulus': fileName };
     }
     if (targets.includes(toPush)) {
       i -= 1;
@@ -91,19 +97,15 @@ export function timelineFactory(callback) {
     stimulus: 'stimulus',
     type: "callbackImageKeyboardResponsePlugin",
     timeline: targets,
-    on_start: function() {
-      let x = JSON.stringify(this.stimulus)
-      console.log(x.slice(15,18))
-    },
     trial_duration: function () {
-      return jsPsych.randomization.sampleWithoutReplacement(
-        [250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750],
-        1
-      )[0];
+      return jsPsych.randomization.sampleWithoutReplacement([250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750], 1)[0];
     },
     stimulus_duration: stim_duration,
     post_trial_gap: post_trial_gap(),
-    
+    on_start: function(){
+      console.log(this)
+    }
+
   };
 
   timeline.push(test_trials);

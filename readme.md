@@ -6,4 +6,10 @@ npm install
 npm install jspsych-react webpack -g
 
 
-this should work
+npm install @neurosity/notion
+
+
+//If it says some module missing, install the missing one and that should work
+
+
+
