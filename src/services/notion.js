@@ -1,3 +1,4 @@
+
 import React, { useContext, createContext } from "react";
 import { useState, useEffect, useCallback } from "react";
 import { Notion } from "@neurosity/notion";
@@ -54,8 +55,8 @@ function useProvideNotion() {
       notion.selectDevice((devices) =>
         lastSelectedDeviceId
           ? devices.find(
-              (device) => device.deviceId === lastSelectedDeviceId
-            )
+            (device) => device.deviceId === lastSelectedDeviceId
+          )
           : devices[0]
       );
     }
