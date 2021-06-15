@@ -46,15 +46,11 @@ export function timelineFactory(callback) {
   const stop_callback = function () {
     callback("stop");
   };
-  // const on_start = (e) => {
-  //   console.log(e)
-  // }
+
 
   // jspsych is in the node_modules
   const base_path = "/src/images/";
   let targets = [];
-  ///Users/jamesvlasak/jspsych_react_picturetask/src/static
-  //targets = targets.map(target => `${base_path}${target}`);
 
   let imageNumber;
   let fileName;
@@ -78,28 +74,6 @@ export function timelineFactory(callback) {
     targets.push(toPush);
   }
 
-  // const stimuli_order = [];
-
-  // for (let counter = 0; counter < n_trials; counter++) {
-  //   stimuli_order.push(Math.random() > prob)
-  // }
-
-  // const stim_list = [];
-  // const images = [];
-  // let trial, image;
-  // for (let counter = 0; counter < n_trials; counter++) {
-  //   if (stimuli_order[counter] === true) {
-  //     let photo_idx = getRandomInt(0, targets.length);
-  //     trial = {
-  //       stimulus: targets[photo_idx],
-  //       on_start: target_callback
-  //     };
-  //     image = targets[photo_idx];
-  //   }
-
-  //   images.push(image);
-  //   stim_list.push(trial);
-  // }
 
   // Create timeline
   const timeline = [];
@@ -118,7 +92,8 @@ export function timelineFactory(callback) {
     type: "callbackImageKeyboardResponsePlugin",
     timeline: targets,
     on_start: function() {
-      console.log(this)
+      let x = JSON.stringify(this.stimulus)
+      console.log(x.slice(15,18))
     },
     trial_duration: function () {
       return jsPsych.randomization.sampleWithoutReplacement(

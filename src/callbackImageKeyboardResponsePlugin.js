@@ -75,7 +75,7 @@ var plugin = (function() {
 
     // add option for on_start parameter in the experiment
     if (typeof trial.on_start === "function") {
-      trial.on_start.call();
+      trial.on_start.call(trial);
     } else if (typeof trial.on_start !== "undefined") {
       trial.data["on_start"] = trial.on_start;
     }
