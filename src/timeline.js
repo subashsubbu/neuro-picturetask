@@ -93,7 +93,7 @@ export function timelineFactory(callback) {
     timeline: targets,
     on_start: function() {
       let x = JSON.stringify(this.stimulus)
-      console.log(x.slice(15,18))
+      console.log(x.slice(13,18))
     },
     trial_duration: function () {
       return jsPsych.randomization.sampleWithoutReplacement(
