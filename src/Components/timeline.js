@@ -2,7 +2,7 @@ import jsPsych from "jspsych";
 import callbackImageKeyboardResponsePlugin, {
   jspsychReact,
 } from "jspsych-react";
-import plugin from "./callbackImageKeyboardResponsePlugin";
+// import plugin from "./callbackImageKeyboardResponsePlugin";
 
 // Helper function
 function getRandomInt(min, max) {
