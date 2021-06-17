@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { Notion } from "@neurosity/notion";
+import { notion, useNotion } from "../services/notion";
 import { ExperimentWindow } from 'jspsych-react';
 import { timelineFactory } from '../Components/timeline';
 import callbackImageKeyboardResponsePlugin from '../Plugins/callbackImageKeyboardResponsePlugin';
@@ -7,6 +9,19 @@ import callbackImageKeyboardResponsePlugin from '../Plugins/callbackImageKeyboar
 export function Experiment() {
     const callback = (targetID) => console.log(targetID);
     const timeline = timelineFactory(callback);
+    useEffect(() => {
+        // if (!user || !notion) {
+        //     return;
+        // }
+
+        const subscription = notion.brainwaves("raw").subscribe(brainwaves => {
+            console.log(brainwaves);
+        });
+
+        return () => {
+            subscription.unsubscribe();
+        };
+    }, [notion]);
     return (
         <div>
             <ExperimentWindow
