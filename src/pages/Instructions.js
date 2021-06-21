@@ -16,7 +16,7 @@ export function Instructions() {
       {user ? <Nav /> : null}
 
       <div>
-        <p>
+        <p style= {{textAlign:"center"}}>
           Welcome to the <strong>picture viewing task</strong>! In this
           experiment, your task will be to simply watch and pay attention
           to the images - when no image is on the screen, please focus on
@@ -25,7 +25,7 @@ export function Instructions() {
           disturbing (e.g., violence) content.
         </p>
 
-        <p>
+        <p style= {{textAlign:"center"}}>
           When you're ready please click "Begin" below!
         </p>
 
