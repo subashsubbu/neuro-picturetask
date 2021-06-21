@@ -7,8 +7,9 @@
 
 
 # Outstanding issues
-- 'Raw' brainwaves that we are displaing in console doesn't depend on the task(experiment). what we want is generate brainwaves throughout the task and print in JSON fromate by ```console.log()``` after all pictures have been finished being presented.
+- 'Raw' brainwaves that we are displaing in console doesn't depend on the task(experiment). what we want is generate brainwaves throughout the task and print in JSON fromat by ```console.log()``` after all pictures have been finished being presented.
 
+- When trying to implement the addMarker function, we are running into an error saying: ```Error: A device must be selected. Make sure to call "notion.selectDevice()"```. At the top of the file, we have instantiated an instance of Notion by declaring ```const notion = new Notion()```, but are running into this error when trying to execute the program. Looking at the documention, we have attempted using the 3 steps to manually select a device, but it has not worked thus far.
 
 
 # Getting started
