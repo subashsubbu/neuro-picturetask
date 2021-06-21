@@ -13,10 +13,10 @@
 
 # Getting started
 
-npm install 
-npm install jspsych-react
-npm install @neurosity/notion
-npm start
+- npm install 
+- npm install jspsych-react
+- npm install @neurosity/notion
+- npm start
 
 //If it says some module missing, install the missing one and that should work
 
