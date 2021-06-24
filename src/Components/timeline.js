@@ -47,12 +47,9 @@ export function timelineFactory(callback) {
     callback("stop");
   };
 
-
   // jspsych is in the node_modules
-  const base_path = '/src/images/';
-  let targets = [
-
-  ];
+  const base_path = "/src/images/";
+  let targets = [];
   ///Users/jamesvlasak/jspsych_react_picturetask/src/static
   //targets = targets.map(target => `${base_path}${target}`);
 
@@ -64,22 +61,19 @@ export function timelineFactory(callback) {
 
     if (imageNumber <= 9) {
       fileName = "src/static/00000" + imageNumber + ".jpg";
-      toPush = { 'stimulus': fileName };
-    }
-    else if (imageNumber > 9 && imageNumber <= 99) {
+      toPush = { stimulus: fileName };
+    } else if (imageNumber > 9 && imageNumber <= 99) {
       fileName = "src/static/0000" + imageNumber + ".jpg";
-      toPush = { 'stimulus': fileName };
-    }
-    else {
+      toPush = { stimulus: fileName };
+    } else {
       fileName = "src/static/000" + imageNumber + ".jpg";
-      toPush = { 'stimulus': fileName };
+      toPush = { stimulus: fileName };
     }
     if (targets.includes(toPush)) {
       i -= 1;
     }
     targets.push(toPush);
   }
-
 
   // Create timeline
   const timeline = [];
@@ -94,19 +88,19 @@ export function timelineFactory(callback) {
   timeline.push(welcome_block);
 
   const test_trials = {
-    stimulus: 'stimulus',
+    stimulus: "stimulus",
     type: "callbackImageKeyboardResponsePlugin",
     timeline: targets,
-    on_start: function() {
-      let x = JSON.stringify(this.stimulus)
-      console.log(x.slice(13,18))
+    on_start: function () {
+      let x = JSON.stringify(this.stimulus);
+      console.log(x.slice(13, 18));
     },
     trial_duration: function () {
-      return jsPsych.randomization.sampleWithoutReplacement([250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750], 1)[0];
+      return jsPsych.randomization.sampleWithoutReplacement(
+        [250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750],
+        1
+      )[0];
     },
-    stimulus_duration: stim_duration,
-    post_trial_gap: post_trial_gap(),
-
   };
 
   timeline.push(test_trials);
