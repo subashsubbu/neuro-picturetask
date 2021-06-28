@@ -3,6 +3,7 @@ import callbackImageKeyboardResponsePlugin, {
   jspsychReact,
 } from "jspsych-react";
 import plugin from "../Plugins/callbackImageKeyboardResponsePlugin.js";
+import { notion } from "../services/notion";
 
 // Helper function
 function getRandomInt(min, max) {
@@ -91,9 +92,11 @@ export function timelineFactory(callback) {
     stimulus: "stimulus",
     type: "callbackImageKeyboardResponsePlugin",
     timeline: targets,
-    on_start: function () {
-      let x = JSON.stringify(this.stimulus);
-      console.log(x.slice(13, 18));
+    on_start: function() {
+      let x = JSON.stringify(this.stimulus)
+      const stimulusId = x.slice(13,18);
+      console.log({ stimulusId });
+      notion.addMarker(stimulusId);
     },
     trial_duration: function () {
       return jsPsych.randomization.sampleWithoutReplacement(
