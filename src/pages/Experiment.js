@@ -15,7 +15,13 @@ export function Experiment() {
         // }
 
         const subscription = notion.brainwaves("raw").subscribe(brainwaves => {
+
             console.log(brainwaves);
+
+            const marker = brainwaves.marker;
+            if (marker) {
+                console.warn("Marker found", brainwaves.marker)
+            }
         });
 
         return () => {

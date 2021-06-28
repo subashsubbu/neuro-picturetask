@@ -3,6 +3,7 @@ import callbackImageKeyboardResponsePlugin, {
   jspsychReact,
 } from "jspsych-react";
 import plugin from "../Plugins/callbackImageKeyboardResponsePlugin.js";
+import { notion } from "../services/notion"
 
 // Helper function
 function getRandomInt(min, max) {
@@ -56,7 +57,7 @@ export function timelineFactory(callback) {
   var imageNumber;
   var fileName;
   var toPush;
-  for (var i = 0; i < 5; i++) {
+  for (var i = 0; i < 10; i++) {
     imageNumber = Math.floor(Math.random() * (901 - 1) + 1);
 
     if (imageNumber <= 9) {
@@ -93,7 +94,9 @@ export function timelineFactory(callback) {
     timeline: targets,
     on_start: function () {
       let x = JSON.stringify(this.stimulus);
+      const stim = x.slice(13,18);
       console.log(x.slice(13, 18));
+      notion.addMarker(stim);
     },
     trial_duration: function () {
       return jsPsych.randomization.sampleWithoutReplacement(

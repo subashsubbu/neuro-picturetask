@@ -29,7 +29,11 @@ export function Instructions() {
           When you're ready please click "Begin" below!
         </p>
 
-        <Link to="/experiment">Begin</Link>
+        <Link to="/experiment">
+          <div style={{display:"flex", justifyContent:"center", alignContent:"center"}}>
+          <button>Begin</button>
+          </div>
+        </Link>
       </div>
 
     </main>
