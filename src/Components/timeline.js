@@ -57,7 +57,7 @@ export function timelineFactory(callback) {
     var imageNumber;
     var fileName;
     var toPush;
-    for (var i = 0; i < 5; i++) {
+    for (var i = 0; i < 20; i++) {
         imageNumber = Math.floor(Math.random() * (901 - 1) + 1);
 
         if (imageNumber <= 9) {
