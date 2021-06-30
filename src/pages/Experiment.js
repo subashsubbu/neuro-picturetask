@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react'
+import { pipe } from "rxjs";
+import { scan } from "rxjs/operators";
 import { Notion } from "@neurosity/notion";
 import { notion, useNotion } from "../services/notion";
 import { ExperimentWindow } from 'jspsych-react';
@@ -14,14 +16,10 @@ export function Experiment() {
         //     return;
         // }
 
-        const subscription = notion.brainwaves("raw").subscribe(brainwaves => {
-
-            console.log(brainwaves);
-
-            const marker = brainwaves.marker;
-            if (marker) {
-                console.warn("Marker found", brainwaves.marker)
-            }
+        const subscription = notion.brainwaves("raw").pipe(
+          concatEpochs()
+        ).subscribe(brainwaves => {
+          console.log(brainwaves)
         });
 
         return () => {
@@ -40,3 +38,18 @@ export function Experiment() {
 }
 
 
+function concatEpochs() {
+  return pipe(
+    scan((acc, epoch) => {
+      for (let channelIndex = 0; channelIndex < acc.data.length; channelIndex++) {
+        acc.data[channelIndex].push(...epoch.data[channelIndex])
+      }
+
+      acc.info.markers = Array.isArray(acc.info.markers)
+        ? acc.info.markers.concat(...(epoch.info.markers || []))
+        : [];
+
+      return acc;
+    })
+  )
+}
