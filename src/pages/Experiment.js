@@ -9,32 +9,32 @@ import callbackImageKeyboardResponsePlugin from '../Plugins/callbackImageKeyboar
 
 
 export function Experiment() {
-  const callback = (targetID) => console.log(targetID);
-  const timeline = timelineFactory(callback);
-  useEffect(() => {
-    // if (!user || !notion) {
-    //     return;
-    // }
+    const callback = (targetID) => console.log(targetID);
+    const timeline = timelineFactory(callback);
+    useEffect(() => {
+        // if (!user || !notion) {
+        //     return;
+        // }
 
-    const subscription = notion.brainwaves("raw").pipe(
-      concatEpochs()
-    ).subscribe(brainwaves => {
-      console.log(brainwaves)
-    });
+        const subscription = notion.brainwaves("raw").pipe(
+          concatEpochs()
+        ).subscribe(brainwaves => {
+          console.log(brainwaves)
+        });
 
-    return () => {
-      subscription.unsubscribe();
-    };
-  }, [notion]);
-  return (
-    <div>
-      <ExperimentWindow
-        settings={{ timeline }}
-        plugins={{ callbackImageKeyboardResponsePlugin }}
-      />
+        return () => {
+            subscription.unsubscribe();
+        };
+    }, [notion]);
+    return (
+        <div>
+            <ExperimentWindow
+                settings={{ timeline }}
+                plugins={{ callbackImageKeyboardResponsePlugin }}
+            />
 
-    </div>
-  )
+        </div>
+    )
 }
 
 
