@@ -32,8 +32,9 @@ module.exports = {
     historyApiFallback: true,
     contentBase: './'
   },
-  plugins: [new HtmlWebpackPlugin({
-    favicon: "./src/favicon.ico",
-    inject: true
-})],
+//   plugins: [new HtmlWebpackPlugin({
+//     favicon: "./src/favicon.ico",
+//     inject: true
+// })
+// ],
 };
