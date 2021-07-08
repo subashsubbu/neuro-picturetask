@@ -19,10 +19,10 @@ module.exports = {
       },
 
     },
-    {
-      test: /\.ico$|\.jpe?g$|\.gif$|\.png$|\.svg$/,
-      loader: 'file-loader?name=[name].[ext]'
-    },
+    // {
+    //   test: /\.ico$|\.jpe?g$|\.gif$|\.png$|\.svg$/,
+    //   loader: 'file-loader?name=[name].[ext]'
+    // },
     ]
   },
   resolve: {
