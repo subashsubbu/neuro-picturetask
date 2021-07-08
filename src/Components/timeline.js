@@ -72,6 +72,7 @@ export function timelineFactory(callback) {
         }
         if (targets.includes(toPush)) {
             i -= 1;
+            continue;
         }
         targets.push(toPush);
     }
